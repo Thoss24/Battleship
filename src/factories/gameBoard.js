@@ -1,5 +1,3 @@
-import Ship from "./ships";
-
 class Gameboard {
 
     constructor(board) {
