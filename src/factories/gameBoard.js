@@ -1,3 +1,5 @@
+import Ship from "./ship";
+
 class Gameboard {
 
     constructor(board) {
@@ -20,18 +22,19 @@ class Gameboard {
         return this.board[location].containsShip
     }
 
-    placeShip(location, ship, axis) {
+    placeShip(ship, location, axis) {
+        // method to check if place on board is free
+
         const shipLocation = []
 
-        for (let i = 0; i < ship.length; i++) {
-            if (axis === "x") {
-                shipLocation.push(location + i)
+        for(let i = 0; i < ship.length; i++) {
+            if(axis === "x") {
+               shipLocation.push(location + i)
             } else shipLocation.push(location + i * 10)
         } 
         return shipLocation
     }
-    
-        
+           
 }
 
 export default Gameboard

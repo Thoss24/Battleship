@@ -7,7 +7,7 @@ describe('Gameboard', () => {
 
     beforeEach(() => {
         gameBoard = new Gameboard()
-        ship = new Ship(3)
+        ship = new Ship(4)
     });
 
     test('Initialize board', () => {
@@ -33,6 +33,15 @@ describe('Gameboard', () => {
         gameBoard.board[25].containsShip = true
         expect(gameBoard.checkHit(25)).toBe(true)
     });
+
+    test("Place ship horizontally", () => {
+        expect(gameBoard.placeShip(ship, 20, "x")).toEqual([
+            20,
+            21,
+            22,
+            23
+        ]);
+    })
     
 
 })
