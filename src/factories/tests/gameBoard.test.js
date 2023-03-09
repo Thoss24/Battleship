@@ -42,6 +42,15 @@ describe('Gameboard', () => {
             23
         ]);
     })
+
+    test("Place ship vertically", () => {
+        expect(gameBoard.placeShip(ship, 20, "y")).toEqual([
+            20,
+            30,
+            40,
+            50
+        ]);
+    })
     
 
 })
