@@ -35,21 +35,30 @@ describe('Gameboard', () => {
     });
 
     test("Place ship horizontally", () => {
-        expect(gameBoard.placeShip(ship, 20, "x")).toEqual([
+        expect(gameBoard.shipCoordinates(ship, 20, "x")).toEqual([
             20,
             21,
             22,
             23
         ]);
-    })
+    });
 
     test("Place ship vertically", () => {
-        expect(gameBoard.placeShip(ship, 20, "y")).toEqual([
+        expect(gameBoard.shipCoordinates(ship, 20, "y")).toEqual([
             20,
             30,
             40,
             50
         ]);
+    });
+
+    test("Place ship test method", () => {
+        expect(gameBoard.placeShipTest(ship, 20)).toEqual([
+            20, 
+            21,
+            22,
+            23
+        ])
     })
     
 
