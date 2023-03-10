@@ -39,11 +39,11 @@ class Gameboard {
     placeShipTest(ship, location) {
         if (ship.isVertical) {
             for (let i = 0; i < ship.length; i++) {
-                this.board[location + i * 10].ship = ship.id
+                this.board[location + i * 10].ship = ship
             }
         } else {
             for (let i = 0; i < ship.length; i++) {
-                this.board[location + i].ship = ship.id
+                this.board[location + i].ship = ship
             }
         } 
         return this.board

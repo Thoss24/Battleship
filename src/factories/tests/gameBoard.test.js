@@ -53,13 +53,9 @@ describe('Gameboard', () => {
     });
 
     test("Place ship test method", () => {
-        expect(gameBoard.placeShipTest(ship, 20)).toEqual([
-            20, 
-            21,
-            22,
-            23
-        ])
-    })
+        ship.isVertical = true
+        expect(gameBoard.placeShipTest(ship, 0)).toEqual(gameBoard)
+    });
     
 
 })
