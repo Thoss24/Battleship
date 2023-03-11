@@ -1,9 +1,10 @@
 class Ship {
 
-    constructor(length, isVertical = false) {
+    constructor(length, isVertical = false, sunk = false) {
         this.hits = []
         this.length = length
         this.isVertical = isVertical
+        this.sunk = sunk
     }
 
     hit(hit) {
@@ -11,7 +12,7 @@ class Ship {
     }
 
     isSunk() {
-        return this.hits.length === this.length 
+        if (this.hits === this.length) this.sunk = true
     }
 }
 

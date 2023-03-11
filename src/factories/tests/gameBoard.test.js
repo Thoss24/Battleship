@@ -53,8 +53,12 @@ describe('Gameboard', () => {
     });
 
     test("Place ship test method", () => {
-        ship.isVertical = true
-        expect(gameBoard.placeShipTest(ship, 0)).toEqual(gameBoard)
+        expect(gameBoard.placeShipTest(ship, 0)).toEqual(gameBoard.board)
+    });
+
+    test("All ships are not sunk", () => {
+        gameBoard.placeShipTest(ship, 0)
+        expect(gameBoard.allShipsSunk()).toBe(false)
     });
     
 
