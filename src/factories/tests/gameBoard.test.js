@@ -34,35 +34,17 @@ describe('Gameboard', () => {
         expect(gameBoard.checkHit(25)).toBe(true)
     });
 
-    test("Place ship horizontally", () => {
-        expect(gameBoard.shipCoordinates(ship, 20, "x")).toEqual([
-            20,
-            21,
-            22,
-            23
-        ]);
-    });
-
-    test("Place ship vertically", () => {
-        expect(gameBoard.shipCoordinates(ship, 20, "y")).toEqual([
-            20,
-            30,
-            40,
-            50
-        ]);
-    });
-
-    test("Place ship test method", () => {
-        expect(gameBoard.placeShipTest(ship, 0)).toEqual(gameBoard.board)
+    test("Place ship method", () => {
+        expect(gameBoard.placeShip(ship, 0)).toEqual(gameBoard.board)
     });
 
     test("All ships are not sunk", () => {
-        gameBoard.placeShipTest(ship, 0)
+        gameBoard.placeShip(ship, 0)
         expect(gameBoard.allShipsSunk()).toBe(false)
     });
 
     test("All ships are sunk", () => {
-        gameBoard.placeShipTest(ship.sunk = true, 0)
+        gameBoard.placeShip(ship.sunk = true, 0)
         expect(gameBoard.allShipsSunk()).toBe(true)
     });
     

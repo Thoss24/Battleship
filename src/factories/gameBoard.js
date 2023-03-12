@@ -22,23 +22,8 @@ class Gameboard {
         return this.board[location].containsShip
     }
 
-    shipCoordinates(ship, location, axis) {
-
-        // method to check if place on board is free
-
-        const shipLocation = []
-
-        for(let i = 0; i < ship.length; i++) {
-            if(axis === "x") {
-                shipLocation.push(location + i) 
-            } else shipLocation.push(location + i * 10)
-        } 
-        return shipLocation
-    }
-
-    placeShipTest(ship, location) {
-
-        // method to check if place on board is free
+    placeShip(ship, location) {
+        // method/function to check if place on board is free
 
         if (ship.isVertical) {
             for (let i = 0; i < ship.length; i++) {
@@ -50,12 +35,10 @@ class Gameboard {
                 this.board[location + i].ship = ship
             }
         } 
-
         return this.board
     }
 
     allShipsSunk() {
-
         let checker = arr => arr.every(x => x === true)
 
         let allShips = []
@@ -67,7 +50,6 @@ class Gameboard {
         let isSunk = allShips.map(x => x === "sunk")
 
         return checker(isSunk)
-
     }
            
 }
