@@ -60,6 +60,11 @@ describe('Gameboard', () => {
         gameBoard.placeShipTest(ship, 0)
         expect(gameBoard.allShipsSunk()).toBe(false)
     });
+
+    test("All ships are sunk", () => {
+        gameBoard.placeShipTest(ship.sunk = true, 0)
+        expect(gameBoard.allShipsSunk()).toBe(true)
+    });
     
 
 })
