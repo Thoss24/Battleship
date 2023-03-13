@@ -8,12 +8,19 @@ describe("Player methods tests", () => {
     let player
 
     beforeEach(() => {
-        gameBoard = new Gameboard()
+        // mock opponent board
+        gameBoard = {
+            enemyBoard: [],
+            receiveAttack: jest.fn((location) => {
+                
+            })
+        }
         ship = new Ship(4)
         player = new Player("Thomas")
     });
 
     test("Attack location", () => {
-        expect(player.attack(1, gameBoard)).toBe([])
+        player.attack(1, gameBoard)
+        expect(gameBoard.receiveAttack(1)).toBe([])
     });
 })
