@@ -7,7 +7,7 @@ class Player {
     }
 
     attack(location, board) {
-        board.receiveAttack(location)
+        board.receiveHit(location)
     }
 }
 

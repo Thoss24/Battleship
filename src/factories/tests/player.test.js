@@ -8,19 +8,29 @@ describe("Player methods tests", () => {
     let player
 
     beforeEach(() => {
+        ship = new Ship(4)
+        player = new Player("Thomas")
+
         // mock opponent board
         gameBoard = {
             enemyBoard: [],
-            receiveAttack: jest.fn((location) => {
-                
+            receiveHit: jest.fn((location) => { 
+                gameBoard.enemyBoard[location] = "miss" // Mock function to emulate board hit/ missing  a ship
+            }),
+            returnOpponentBoard: jest.fn(() => {
+                return gameBoard.enemyBoard
             })
+        };
+
+        const opponentBoard = []
+        for (let i = 0; i < 100; i++) {
+            opponentBoard.push("Empty")
         }
-        ship = new Ship(4)
-        player = new Player("Thomas")
+        gameBoard.enemyBoard = opponentBoard
     });
 
     test("Attack location", () => {
         player.attack(1, gameBoard)
-        expect(gameBoard.receiveAttack(1)).toBe([])
+        expect(gameBoard.receiveHit.mock.calls.length).toBe(1)
     });
 })
