@@ -1,9 +1,8 @@
-import Gameboard from "./gameBoard"
 
 class Player {
     constructor(name) {
         this.name = name
-        this.gameBoard = new Gameboard()
+        this.shots = []
     }
 
     attack(location, board) {
@@ -14,10 +13,17 @@ class Player {
         return Math.floor(Math.random() * num)
     }
 
-    ai(location, board) {
-        for(let i = 0; i < board.length; i++) {
-            if(i === location) return 
+    randomMove() {
+        let move = this.randomNumber(100)
+        while(this.shots.includes(move)) {
+            move = this.randomNumber(100)
         }
+        this.shots.push(move)
+        return move
+    }
+
+    randomBoardHit(board, loc) {
+
     }
 }
 

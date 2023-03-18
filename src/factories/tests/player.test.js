@@ -44,9 +44,10 @@ describe("Player methods tests", () => {
         expect(player.randomNumber(1)).toBe(0)
     });
 
-    test("ai", () => {
-        expect(player.ai(25, myBoard)).toBe([])
-    })
+    test("random move", () => {
+        expect(player.randomMove()).toBeLessThan(100)
+    });
 
+    
   
 })
