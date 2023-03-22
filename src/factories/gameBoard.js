@@ -4,6 +4,10 @@ class Gameboard {
 
     constructor(board) {
         this.board = board || []
+        this.lastShot = {
+            hit:false,
+            loc:false
+        }
 
         if (!this.board.length) this.setBoard()
     }
@@ -16,6 +20,13 @@ class Gameboard {
 
     receiveAttack(location) {
         this.board[location].isHit = true 
+
+        if (this.board[location].containsShip) { // ai to determine next move
+            this.board.lastShot.hit = true
+            this.board.lastShot.loc = location
+        }
+
+        this.allShipsSunk()
     }
 
     checkHit(location) {

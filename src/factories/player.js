@@ -14,16 +14,28 @@ class Player {
     }
 
     randomMove() {
-        let move = this.randomNumber(100)
-        while(this.shots.includes(move)) {
-            move = this.randomNumber(100)
+        let move = this.randomNumber(100) // move == random number less than 100 
+        while(this.shots.includes(move)) { // while move exists inside shots array
+            move = this.randomNumber(100) // move == another random number less than 100 
         }
-        this.shots.push(move)
+        this.shots.push(move)  
         return move
     }
 
-    randomBoardHit(board, loc) {
+    randomBoardHit(lastHit) {
+        if (lastHit.hit) { // if Gameboard.lastHit.hit === true execute getMove function
+            const getMove = (lastHit) => {
+                let randomNum = this.randomNumber(4) // random number less than 4
+                let nextMove; // variable to assign value of next move
+                // conditions to assign lastHit.loc (location of last attempted hit) depending on value of the randomNum variable
+                if (randomNum === 0) nextMove = lastHit.loc + 1; 
+                if (randomNum === 1) nextMove = lastHit.loc - 1;
+                if (randomNum === 2) nextMove = lastHit.loc + 10;
+                if (randomNum === 3) nextMove = lastHit.loc - 10;
 
+                return nextMove
+            }
+        }
     }
 }
 
