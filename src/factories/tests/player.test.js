@@ -48,6 +48,6 @@ describe("Player methods tests", () => {
         expect(player.randomMove()).toBeLessThan(100)
     });
 
-    
+  
   
 })

@@ -35,6 +35,13 @@ class Player {
 
                 return nextMove
             }
+
+            let newMove = getMove(lastHit) // newMove === getMOve function which returns random location on board
+
+            if (this.shots.includes(newMove) || newMove > 99 || newMove < 0) { // if newMove is larger or less than length of board re-initialize newMOve to equal getMove to produce a new board hit location
+                newMove = getMove(lastHit)
+            }
+
         }
     }
 }
